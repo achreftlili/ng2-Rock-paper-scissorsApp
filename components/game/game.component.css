@@ -1,0 +1,66 @@
+.main-div{
+  position:absolute;
+  background-color:#19b7aa;
+  width: 100%;
+  height: 100%;
+}
+.left-counter {
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #09f281;
+  float: left;
+  text-align: center;
+}
+.right-counter {
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  float: right;
+  background-color: #f9b834;
+  text-align: center;
+}
+
+.button {
+  background-color: #047d8F;
+  color: #fff;
+  border-radius: 3px;
+  padding: 12px 0px;
+  text-align: center;
+  cursor: pointer;
+  width: 360px;
+  border: none;
+  margin-left: 40%;
+}
+.reset-button {
+  background-color: #047d8F;
+  color: #fff;
+  border-radius: 3px;
+  padding: 12px 0px;
+  text-align: center;
+  cursor: pointer;
+  width: 360px;
+  border: none;
+  margin-left: 70%;
+}
+.choices-list{
+  float: left;
+  margin-left: 13%;
+}
+.icon-choice {
+  display: inline-block;
+  border-radius: 12%;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+.message-class{
+  margin-top: 70px;
+  position: absolute;
+}

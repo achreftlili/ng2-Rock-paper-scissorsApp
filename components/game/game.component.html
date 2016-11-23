@@ -1,0 +1,22 @@
+<div class="main-div">
+  <div>
+    <button  class="button" [hidden]="!MachineVSMachine" (click)="resetGame(playerone,playertwo)" (click)="toggleGameType()">User against Computer</button>
+    <button  class="button" [hidden]="MachineVSMachine" (click)="toggleGameType()">Computer against Computer</button>
+  </div>
+  <div class="left-counter"><h3>{{ (game$ | async).player1 }}</h3></div>
+  <div class="right-counter"><h3>{{ (game$ | async).player2 }}</h3></div>
+  <player [playerClass]="'left-player'" (randomizingDone)="choiceSelected($event)" [playerColor]="'#09f281'" [playerNumber]="'One'" #playerone></player>
+  <player [playerClass]="'right-player'" (randomizingDone)="choiceSelected($event)" [playerColor]="'#f9b834'" [playerNumber]="'Two'" #playertwo></player>
+  <div [hidden]="MachineVSMachine" class="choices-list">
+    <img  (click)="startGame(playerone, playertwo)" (click)="setChoice(playerone,'rock')" src="./components/player/img/rock.png" class="icon-choice" />
+    <img  (click)="startGame(playerone, playertwo)" (click)="setChoice(playerone,'paper')" src="./components/player/img/paper.png" class="icon-choice" />
+    <img  (click)="startGame(playerone, playertwo)" (click)="setChoice(playerone,'scissors')"  src="./components/player/img/scissors.png" class="icon-choice" />
+  </div>
+  <br/>
+  <button class="button"  [hidden]="!MachineVSMachine" (click)="startGame(playerone, playertwo)">Start Game</button>
+  <br/>
+  <button class="reset-button" [hidden]="false"  (click)="resetGame(playerone,playertwo)">Reset Game</button>
+  <div class="message-class">
+    <h3>{{gameResult}}</h3>
+  </div>
+</div>

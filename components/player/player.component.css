@@ -1,0 +1,21 @@
+.player {
+  display: inline-block;
+  padding: 110px;
+  margin: 50px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.left-player {
+  float: left;
+}
+.right-player {
+  float: right;
+}
+.icon {
+  display: inline-block;
+  border-radius: 12%;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
