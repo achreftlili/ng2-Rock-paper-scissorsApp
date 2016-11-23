@@ -52,6 +52,8 @@
 .choices-list{
   float: left;
   margin-left: 13%;
+  position: absolute;
+  margin-top: 400;
 }
 .icon-choice {
   display: inline-block;
