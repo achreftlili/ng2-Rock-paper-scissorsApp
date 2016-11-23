@@ -15,11 +15,13 @@ import { IAppState } from '../../store';
 export class GameComponent {
   gameResult:String = '';
   MachineVSMachine:Boolean = true;
+  //Select the game state from the store Asynchronously
   @select('game') game$: Observable<Object>;
   private randomizeResults = new Array();
 
   constructor(public gameActions: GameActions,private ngRedux: NgRedux<IAppState>) {}
-
+  
+  //Start the Game Methode as input the two players components
   startGame(playerOne, playerTwo) {
     this.gameResult="";
     this.randomizeResults = new Array();
@@ -28,22 +30,22 @@ export class GameComponent {
     }
 		playerTwo.startRondomize();
 	}
-
+  //Set the choice of the user in the Child componenet
   setChoice(playerOne, choice) {
 		playerOne.setChoice(choice);
 	}
-
+  //Toggle the Game Types between MachineVSMachine and UserVSMachine
   toggleGameType() {
 		this.MachineVSMachine = !this.MachineVSMachine;
 	}
-
+  //Set the choice of the User in our choicesArray=randomizeResults
   choiceSelected(playerResult) {
     this.randomizeResults.push(playerResult);
     if (this.randomizeResults.length == 2) {
       this.gameResult = this.calculateWinner();
     }
   }
-
+  //Calculate the winner between the two users
   calculateWinner() {
 		if (this.randomizeResults[0].value == this.randomizeResults[1].value) {
 			return "it's a draw !";
@@ -57,7 +59,7 @@ export class GameComponent {
       this.incrementPlayer(this.randomizeResults[1].player);
 		return this.randomizeResults[1].player + " wins !!!";
 	}
-
+  //Increment the score of users
   private incrementPlayer(number) {
     if (number == "One") {
       this.gameActions.incrementPlayer1();
@@ -65,7 +67,7 @@ export class GameComponent {
       this.gameActions.incrementPlayer2();
     }
   }
-
+  //Reset the Game
 	private resetGame(playerOne,playerTwo) {
     this.gameResult="";
     this.MachineVSMachine=true;

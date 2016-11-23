@@ -15,14 +15,16 @@ export class PlayerComponent {
   @Output() randomizingDone = new EventEmitter();
 
   public value = "question";
-
+  //Init function for the component
   init() {
     this.value = "question";
   }
+  //Set the choice value of the player Component
   setChoice(choice) {
     this.value = choice;
     this.randomizingDone.next({player :this.playerNumber,value:this.value});
   }
+  //Start the random function between the choices ["rock", "paper", "scissors"]
   startRondomize() {
 		var choices = ["rock", "paper", "scissors"];
     var RandomizeCounter = 0;
